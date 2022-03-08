@@ -11,6 +11,7 @@ class BoasVindasPage extends StatefulWidget {
 }
 
 class _BoasVindasPageState extends State<BoasVindasPage> {
+
   @override
   void initState() {
     super.initState();

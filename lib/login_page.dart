@@ -2,6 +2,8 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/src/widgets/image.dart';
+import 'package:flutter/src/painting/image_provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -23,10 +25,15 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.network(
-            'https://agportal.agapesistemas.com.br/Banner?id=50&pfdrid_c=false&uid=6658b466-4839-490a-a5a2-8d232ac8f022',
+          Container(
             height: 300,
             width: 300,
+            child: Padding(padding: EdgeInsets.all(110),
+            child: Image.network(
+              'https://agportal.agapesistemas.com.br/resources/agape/imgs/logo-agape.png',
+              fit: BoxFit.fill,
+              filterQuality: FilterQuality.high,
+            ),)
           ),
           Expanded(
             child: Container(
@@ -37,8 +44,8 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(55),
                     topRight: Radius.circular(55),
-                    bottomLeft: Radius.circular(55),
-                    bottomRight: Radius.circular(55),
+                    bottomLeft: Radius.circular(5),
+                    bottomRight: Radius.circular(5),
                   )),
               child: Column(
                 children: [
@@ -53,6 +60,12 @@ class _LoginPageState extends State<LoginPage> {
                     height: 16,
                   ),
                   TextFormField(
+                    validator: (String? cpf) {
+                      if(cpf == null || cpf.isEmpty){
+                        return "CPF obrigatório!";
+                      }
+                      return "Ok";
+                    },
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
                       CpfInputFormatter(),
@@ -113,30 +126,44 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return SimpleDialog(
-                                title: Text('Você entrou com '),
-                                children: [
-                                  ListTile(
-                                    leading: Icon(Icons.mail),
-                                    title: Text(cpfController.text.toString()),
-                                  ),
-                                  ListTile(
-                                    leading: Icon(Icons.lock),
-                                    title: Text(
-                                        passwordController.text.toString()),
-                                  ),
-                                ],
-                              );
-                            });
+
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 10),
                         child: Text('Entrar'),
-                      ))
+                      )),
+
+                     Padding(padding: EdgeInsets.fromLTRB(5, 100, 5, 2), child: Column(
+                       children: [
+                         Row(
+                           children: [
+                             InkWell(
+                                onTap: (){
+
+                                },
+                               child: Container(
+
+                                 child: Image.network('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/640px-Instagram_icon.png',
+                                   fit: BoxFit.fill,),
+                                 width: 32,
+                                 height: 32,
+                               ),
+                             )
+                           ],
+                         ),
+                        Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child:  Row(
+                          children: [
+                            Icon(Icons.copyright_sharp),
+                            Expanded(
+                                flex: 2,
+                                child:  Text('Todos os direitos reservados a Ágape Sistemas e Tecnologias',))
+
+                          ],
+                        ),)
+                       ],
+                     ))
                 ],
               ),
             ),

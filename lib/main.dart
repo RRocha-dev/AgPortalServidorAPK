@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Portal do Servidor',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.brown,
+        primarySwatch: Colors.blue,
       ),
       home: const BoasVindasPage(),
     );
