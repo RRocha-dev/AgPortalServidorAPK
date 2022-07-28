@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "api_login" "\0"
+            VALUE "FileDescription", "agportalservidorapk" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "api_login" "\0"
+            VALUE "InternalName", "agportalservidorapk" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "api_login.exe" "\0"
-            VALUE "ProductName", "api_login" "\0"
+            VALUE "OriginalFilename", "agportalservidorapk.exe" "\0"
+            VALUE "ProductName", "agportalservidorapk" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,6 +1,6 @@
 {
-    "name": "api_login",
-    "short_name": "api_login",
+    "name": "agportalservidorapk",
+    "short_name": "agportalservidorapk",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

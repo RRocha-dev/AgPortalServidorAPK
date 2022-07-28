@@ -1,5 +1,6 @@
-import 'package:api_login/boasVindas_page.dart';
 import 'package:flutter/material.dart';
+
+import 'boasVindas_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Portal do Servidor',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          // primarySwatch: Color.fromRGBO(71, 66, 131, 1),00
+          ),
       home: const BoasVindasPage(),
     );
   }

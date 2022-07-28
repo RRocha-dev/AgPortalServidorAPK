@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.api_login">
+    package="com.example.agportalservidorapk">
    <application
-        android:label="api_login"
+        android:label="agportalservidorapk"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

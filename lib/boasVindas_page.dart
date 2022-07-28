@@ -1,7 +1,10 @@
-import 'package:api_login/home_page.dart';
-import 'package:api_login/login_page.dart';
+import 'dart:io';
+
+import 'package:agportalservidorapk/content_login/home_page.dart';
+import 'package:agportalservidorapk/content_login/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'content_login/login_page.dart';
 
 class BoasVindasPage extends StatefulWidget {
   const BoasVindasPage({Key? key}) : super(key: key);
@@ -11,18 +14,19 @@ class BoasVindasPage extends StatefulWidget {
 }
 
 class _BoasVindasPageState extends State<BoasVindasPage> {
-
   @override
   void initState() {
     super.initState();
     verificarToken().then(
-      (value) {
-        if (value) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: ((context) => const HomePage())));
+      (value) async {
+        if (false) {
+          // sleep(Duration(seconds: 3));
+          // Navigator.pushReplacement(context,
+          //     MaterialPageRoute(builder: (context) => const HomePage()));
         } else {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const LoginPage()));
+          sleep(Duration(seconds: 5));
+          await Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const HomePage()));
         }
       },
     );
