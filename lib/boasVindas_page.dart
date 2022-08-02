@@ -4,7 +4,6 @@ import 'package:agportalservidorapk/content_login/home_page.dart';
 import 'package:agportalservidorapk/content_login/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'content_login/login_page.dart';
 
 class BoasVindasPage extends StatefulWidget {
   const BoasVindasPage({Key? key}) : super(key: key);
@@ -34,9 +33,17 @@ class _BoasVindasPageState extends State<BoasVindasPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
+    final _size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Container(
+        width: _size.width,
+        height: _size.height,
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 5, 53, 125),
+        ),
+        child: Center(
+          child: Image.asset('assets/logo.png'),
+        ),
       ),
     );
   }

@@ -1,4 +1,7 @@
+import 'package:agportalservidorapk/content_login/home_page.dart';
 import 'package:flutter/material.dart';
+
+import 'login_page_new.dart';
 
 class MainAliasPage extends StatefulWidget {
   const MainAliasPage({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class MainAliasPage extends StatefulWidget {
 class _MainAliasPageState extends State<MainAliasPage> {
   var _primaryColor = Color.fromRGBO(71, 66, 131, 0.2);
   var _errorColor = Colors.red;
-  String? _selectedAlias = '';
+  String? _selectedAlias;
   List<DropdownMenuItem<String>> get _listAlias {
     List<DropdownMenuItem<String>> menuItens = [
       DropdownMenuItem(
@@ -47,7 +50,7 @@ class _MainAliasPageState extends State<MainAliasPage> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     "Selecione o ",
                     style: TextStyle(color: Colors.white, fontSize: 27),
@@ -111,17 +114,48 @@ class _MainAliasPageState extends State<MainAliasPage> {
                   height: _size.height * 0.06,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment(0.1, 0.1),
-                      colors: <Color>[
-                        Color.fromRGBO(205, 106, 251, 1),
-                        Color.fromRGBO(98, 78, 235, 1)
-                      ],
-                    ),
+                    gradient: const LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment(0.1, 0.1),
+                        colors: <Color>[
+                          Color.fromARGB(255, 8, 67, 157),
+                          Color.fromARGB(255, 69, 143, 255),
+                        ],
+                      ),
                   ),
-                  child:
-                      TextButton(child: Text("Prosseguir"), onPressed: () {}),
+                  child: TextButton(
+                      child: Text("Prosseguir",
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        LoginPageNew.atualAlias = _selectedAlias;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => LoginPageNew())));
+                      }),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 50, right: 50, top: 30),
+                child: Container(
+                  height: _size.height * 0.06,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    gradient: const LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment(0.1, 0.1),
+                        colors: <Color>[
+                          Color.fromARGB(255, 8, 67, 157),
+                          Color.fromARGB(255, 69, 143, 255),
+                        ],
+                      ),
+                  ),
+                  child: TextButton(
+                      child: Text("Voltar",
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        pc.animateToPage(0, duration: Duration(milliseconds: 450), curve: Curves.easeIn);
+                      }),
                 ),
               )
             ],

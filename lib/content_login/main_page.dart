@@ -1,3 +1,4 @@
+import 'package:agportalservidorapk/content_login/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -81,6 +82,39 @@ class _MainPageState extends State<MainPage> {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: _size.height * 0.09),
+                  child: Container(
+                    width: _size.width * 0.78,
+                    height: _size.height * 0.12,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      gradient: const LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment(0.1, 0.1),
+                        colors: <Color>[
+                          Color.fromARGB(255, 6, 55, 128),
+                          Color.fromARGB(255, 69, 143, 255),
+                        ],
+                      ),
+                    ),
+                  
+                      child: InkWell(
+                          onTap: () {
+                            pc.animateToPage(1,
+                                duration: Duration(milliseconds: 450),
+                                curve: Curves.easeIn);
+                          },
+                          child: const Center(
+                            child: Text('Prosseguir',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w600)),
+                          )),
+                    ),
+                  ),
+                
               ],
             ),
           ),
